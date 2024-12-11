@@ -7,7 +7,7 @@ const PatientRegistrationPage = () => {
       <div className="max-w-screen-lg relative grid grid-cols-1 drop-shadow shadow-xl rounded-lg lg:grid-cols-2 w-full my-8">
         <div className="relative rounded-s-lg overflow-hidden hidden lg:block">
           <Image
-            src="/assets/bg-patient.png"
+            src="/assets/bg-patient.jpg"
             alt="bg patient"
             fill
             className="object-cover -z-0"

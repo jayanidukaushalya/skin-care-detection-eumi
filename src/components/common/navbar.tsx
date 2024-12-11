@@ -46,45 +46,6 @@ const Navbar = () => {
         </Link>
 
         <div className="flex gap-2">
-          {user &&
-            role === Role.PATIENT &&
-            pathName !== PAGES.PATIENT_DASHBOARD && (
-              <Button
-                onClick={() => {
-                  router.push(PAGES.PATIENT_DASHBOARD)
-                }}
-                variant="ghost"
-              >
-                Dashboard
-              </Button>
-            )}
-          {user &&
-            role === Role.DOCTOR &&
-            pathName !== PAGES.DOCTOR_DASHBOARD && (
-              <Button
-                onClick={() => {
-                  router.push(PAGES.DOCTOR_DASHBOARD)
-                }}
-                variant="ghost"
-              >
-                Dashboard
-              </Button>
-            )}
-          {user &&
-            (pathName === PAGES.DOCTOR_DASHBOARD ||
-              pathName === PAGES.PATIENT_DASHBOARD) && (
-              <Button
-                onClick={() => {
-                  router.push(PAGES.ROOT)
-                }}
-                variant="ghost"
-              >
-                Home Page
-              </Button>
-            )}
-          <Button onClick={() => router.push(PAGES.QUIZ)} variant="ghost">
-            Predict
-          </Button>
           {!user ? (
             <>
               <Button onClick={() => router.push(PAGES.LOGIN)} variant="ghost">
@@ -98,6 +59,40 @@ const Navbar = () => {
             <>
               <Button size="icon" variant="ghost" className="size-10">
                 <Bell />
+              </Button>
+              {pathName === PAGES.DOCTOR_DASHBOARD ||
+                (pathName === PAGES.PATIENT_DASHBOARD && (
+                  <Button
+                    onClick={() => {
+                      router.push(PAGES.ROOT)
+                    }}
+                    variant="ghost"
+                  >
+                    Home Page
+                  </Button>
+                ))}
+              {pathName === PAGES.ROOT && role === Role.DOCTOR && (
+                <Button
+                  onClick={() => {
+                    router.push(PAGES.DOCTOR_DASHBOARD)
+                  }}
+                  variant="ghost"
+                >
+                  Dashboard
+                </Button>
+              )}
+              {pathName === PAGES.ROOT && role === Role.PATIENT && (
+                <Button
+                  onClick={() => {
+                    router.push(PAGES.PATIENT_DASHBOARD)
+                  }}
+                  variant="ghost"
+                >
+                  Dashboard
+                </Button>
+              )}
+              <Button onClick={() => router.push(PAGES.QUIZ)} variant="ghost">
+                Predict
               </Button>
               <Button onClick={handleLogout} variant="destructive">
                 <LogOut />

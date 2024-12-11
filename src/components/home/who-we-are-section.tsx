@@ -39,7 +39,7 @@ const WhoWeAre = () => {
 
         <div className="w-full lg:w-2/3 end-0 bottom-0 h-full relative lg:absolute z-0 rounded-lg overflow-hidden">
           <Image
-            src="/assets/bg-patient.png"
+            src="/assets/bg-patient.jpg"
             alt="banner image"
             width={0}
             height={0}
